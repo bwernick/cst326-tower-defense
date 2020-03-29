@@ -102,11 +102,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8262523722266808648}
-  - component: {fileID: 1664536307547762838}
-  - component: {fileID: 7142255989900985847}
-  - component: {fileID: -1979618144038285213}
-  - component: {fileID: 9083328479897304135}
-  - component: {fileID: 7139794782228406012}
+  - component: {fileID: -4782866394465516755}
+  - component: {fileID: 8540663649525286328}
+  - component: {fileID: -4363818293603629513}
+  - component: {fileID: 173077322439949420}
+  - component: {fileID: 4488413743779106820}
   m_Layer: 8
   m_Name: EnemyA
   m_TagString: Enemy
@@ -129,7 +129,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1664536307547762838
+--- !u!114 &-4782866394465516755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610038190344518489c47eabf722551a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
   isDead: 0
-  value: 5
---- !u!65 &7142255989900985847
+  value: 2
+--- !u!65 &8540663649525286328
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,21 +157,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &-1979618144038285213
+--- !u!195 &-4363818293603629513
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8262523722266808650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 22
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 240
-  m_StoppingDistance: 2
+  m_AngularSpeed: 360
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -179,7 +179,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!114 &9083328479897304135
+--- !u!114 &173077322439949420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 3277148691621389505, guid: ad500c853a26da44a9ec68598fb76164, type: 3}
   goal: {fileID: 6589610077719172619, guid: 33904cd9b376d784cafc80b1d93d2e3c, type: 3}
---- !u!114 &7139794782228406012
+--- !u!114 &4488413743779106820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,4 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDestination: {fileID: 6589610077719172618, guid: 33904cd9b376d784cafc80b1d93d2e3c,
     type: 3}
-  speed: 5
+  speed: 10
+  startHealth: 100
+  value: 50
+  healthBar: {fileID: 0}

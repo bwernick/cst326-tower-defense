@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseRaycast : MonoBehaviour
 {
-    EnemyHealth enemyHealth;
+    Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class MouseRaycast : MonoBehaviour
                 Debug.Log("Clicked " + hit.transform.name); // ensure you picked right object
                 if(hit.collider.tag == "Enemy")
                 {
-                    enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                    enemyHealth.AddjustHealth(-2);
+                    enemy = hit.collider.GetComponent<Enemy>();
+                    enemy.TakeDamage(20f);
 
                 }
             }
