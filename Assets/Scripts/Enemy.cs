@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class Enemy : MonoBehaviour
   public void Start()
   {
         this.transform.position = WaypointManager.waypoints[0].position;
-        currentDestination = WaypointManager.waypoints[1];
+        //probably the most pointless addition to this project
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = currentDestination.position;
+        //currentDestination = WaypointManager.waypoints[1];
         //GetNextWaypoint();
         //transform.position = currentDestination.transform.position; // Move to WP0
         //GetNextWaypoint();
   }
 
+/*
   void Update()
   {
         Vector3 direction = currentDestination.transform.position - transform.position;
@@ -41,5 +46,5 @@ public class Enemy : MonoBehaviour
         currentDestination = WaypointManager.waypoints[currentIndexWaypoint];
         
   }
-
+  */
 }
