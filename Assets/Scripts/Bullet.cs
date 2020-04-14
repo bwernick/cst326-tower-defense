@@ -5,19 +5,49 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-  public float speed = 5;
-  public float lifeTime = 5;
-  private Rigidbody rb;
+    public float speed = 50f;
+    private Transform target;
 
-  void Awake()
-  {
-    rb = GetComponent<Rigidbody>();
-  }
-  void FixedUpdate()
-  {
-    rb.velocity = Vector3.forward * speed;
-    lifeTime -= Time.deltaTime;
-    Debug.Log(lifeTime);
-    if (lifeTime < 0) Destroy(gameObject);
-  }
+    public GameObject impactEffect;
+    
+    public void Seek(Transform _target)
+    {
+        target = _target;
+    }
+
+    void Awake()
+    {
+    
+    }
+    void FixedUpdate()
+    {
+        if(target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Vector3 dir = target.position - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+
+        //if about to hit/hit to avoid overshooting
+        if(dir.magnitude <= distanceThisFrame)
+        {
+            HitTarget();
+            return;
+        }
+
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+
+    }
+
+    void HitTarget()
+    {
+        //Debug.Log("Oof");
+        Enemy enemy = target.gameObject.GetComponent<Enemy>();
+        enemy.TakeDamage(20f);
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
+        Destroy(gameObject);
+    }
 }

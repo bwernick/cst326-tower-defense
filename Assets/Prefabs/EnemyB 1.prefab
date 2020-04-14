@@ -210,6 +210,8 @@ MonoBehaviour:
   startHealth: 50
   value: 50
   healthBar: {fileID: 7612098384656514798}
+  deathParticles: {fileID: 7013283604517390763, guid: c896f07f424e23d42b876f4a9f9a4658,
+    type: 3}
 --- !u!1 &7612098383745714402
 GameObject:
   m_ObjectHideFlags: 0

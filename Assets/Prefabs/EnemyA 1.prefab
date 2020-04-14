@@ -438,3 +438,5 @@ MonoBehaviour:
   startHealth: 100
   value: 50
   healthBar: {fileID: 333013534061396089}
+  deathParticles: {fileID: 7013283604517390763, guid: c896f07f424e23d42b876f4a9f9a4658,
+    type: 3}

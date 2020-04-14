@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public int value = 50;
     public Image healthBar;
 
+    public GameObject deathParticles;
+
   public void Start()
   {
         //this.transform.position = WaypointManager.waypoints[0].position;
@@ -34,6 +36,8 @@ public class Enemy : MonoBehaviour
 
         if(health <= 0)
         {
+            GameObject effectIns = (GameObject)Instantiate(deathParticles, transform.position, transform.rotation);
+            Destroy(effectIns, 2f);
             Purse.money += value;
             Destroy(gameObject);
         }
