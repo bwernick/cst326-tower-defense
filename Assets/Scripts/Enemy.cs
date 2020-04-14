@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-  void Update()
+  void FixedUpdate()
   {
         Vector3 direction = currentDestination.transform.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime);
@@ -57,15 +57,18 @@ public class Enemy : MonoBehaviour
 
   private void GetNextWaypoint()
   {
-        currentIndexWaypoint++;
+        
 
         //handle  index out of bounds for waypoints
         if(currentIndexWaypoint >= WaypointManager.waypoints.Length-1)
         {
             Destroy(gameObject);
-        }   
-
-        currentDestination = WaypointManager.waypoints[currentIndexWaypoint];
+            TowerHealth.health -= 1;
+            return;
+        }
         
+        currentIndexWaypoint++;
+        currentDestination = WaypointManager.waypoints[currentIndexWaypoint];
+        return;
   }
 }
