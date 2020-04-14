@@ -35,8 +35,8 @@ public class RestartLevel : MonoBehaviour
         }
 
         startButton.interactable = true;
-        btn.gameObject.SetActive(true);
-        Time.timeScale = 1;
+        startButton.gameObject.SetActive(true);
+        ButtonManager.restartPushed = true;
     }
 
 }

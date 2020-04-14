@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     public Button restartBtn;
+    public static bool restartPushed = false;
     public static bool levelStarted  = false;
 
     // Start is called before the first frame update
@@ -22,6 +23,13 @@ public class ButtonManager : MonoBehaviour
         {
             restartBtn.gameObject.SetActive(true);
             restartBtn.interactable = true;
+        }
+
+        if (restartPushed)
+        {
+            restartBtn.interactable = false;
+            restartBtn.gameObject.SetActive(false);
+            restartPushed = false;
         }
     }
 }
